@@ -1,12 +1,10 @@
 package tests;
 
-import Pages.RegistrarionPageComponents;
+import Pages.RegistrationPageComponents;
 import Pages.RegistrationFormObject;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -30,51 +28,37 @@ public class AutomationPracticeForm {
         //Ввожу имейл
         new RegistrationFormObject().setUserEmailInput("name@example.com");
         //чек-бокс
-        new RegistrarionPageComponents().setMaleCheckBox();
+        new RegistrationPageComponents().setMaleCheckBox();
         //Ввожу телефонный номер
         new RegistrationFormObject().setUserPhoneNumberInput("8900000000");
 
         //выбираю дату рождения
-
-        new RegistrarionPageComponents().setDateOfBirth("7", "August", "2019");
+        new RegistrationPageComponents().setDateOfBirth("7", "August", "2019");
 
         //Выбираю тему
-        $("#subjectsInput").setValue("Hindi").pressEnter();
+        new RegistrationFormObject().setStudySubjectInput("Hindi");
 
         //чек-бокс
-        $(byText("Sports")).click();
+        new RegistrationPageComponents().setSportsCheckBox();
 
         //загружаю файл
-        $("#uploadPicture").uploadFile(new File("src/test/resources/file.docx"));
+        new RegistrationPageComponents().fileUpload();
 
         //Пишу адресс
-        $("#currentAddress").setValue("address");
+        new RegistrationFormObject().setAddress("address");
 
         //Проматываю ниже, так как ни в какую не хочет нажимать на элементы ниже экрана
-        //Выбираю штат и город
-        $("#submit").scrollIntoView(true);
-        $("#state").click();
-        $(byText("NCR")).click();
-        $("#city").click();
-        $(byText("Delhi")).click();
+        new RegistrationPageComponents().scrollDown();
 
-        //Подтверждаю информацию
-        $("#submit").click();
+        //Выбираю штат и город
+        new RegistrationPageComponents().stateAndCitySelect("NCR", "Delhi");
+
+        //Нажимаю Submit
+        new RegistrationPageComponents().pressSubmit();
 
 
         //Проверяю результат
-        $(".table-responsive").shouldHave(
-                text("Name LastName"),
-                text("name@example.com"),
-                text("Male"),
-                text("8900000000"),
-                text("07 August,2019"),
-                text("Hindi"),
-                text("Sports"),
-                text("file.docx"),
-                text("address"),
-                text("NCR Delhi"));
-
+        new RegistrationPageComponents().checkResults();
 
     }
 }

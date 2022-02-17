@@ -12,13 +12,17 @@ public class RegistrationFormObject {
     SelenideElement userLastNameInput = $("#lastName");
     SelenideElement userEmailInput = $("#userEmail");
     SelenideElement userPhoneNumberInput = $("#userNumber");
+    SelenideElement studySubjectInput = $("#subjectsInput");
+    SelenideElement addressInput = $("#currentAddress");
+
 
 
 
     //actions
 
-    public void setUserFirstName (String userFirstName){
+    public RegistrationFormObject setUserFirstName (String userFirstName){
         userNameInput.setValue(userFirstName);
+        return this;
     }
 
     public void setUserLastNameInput (String userLastName){
@@ -32,4 +36,13 @@ public class RegistrationFormObject {
     public void setUserPhoneNumberInput (String userPhoneNumber){
         userPhoneNumberInput.setValue(userPhoneNumber);
     }
+
+    public void setStudySubjectInput (String studySubject){
+        studySubjectInput.setValue(studySubject).pressEnter();
+    }
+
+    public void setAddress (String address){
+        addressInput.setValue(address);
+    }
+
 }
