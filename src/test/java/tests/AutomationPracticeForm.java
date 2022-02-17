@@ -1,5 +1,7 @@
 package tests;
 
+import Pages.RegistrarionPageComponents;
+import Pages.RegistrationFormObject;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,26 +23,20 @@ public class AutomationPracticeForm {
     void successFillTest() {
         open("/automation-practice-form");
 
-        //Ввожу имя и фамилию
-        $("#firstName").setValue("Name");
-        $("#lastName").setValue("LastName");
-
+        //Ввожу имя
+        new RegistrationFormObject().setUserFirstName("Name");
+        //Ввожу фамилию
+        new RegistrationFormObject().setUserLastNameInput("LastName");
         //Ввожу имейл
-        $("#userEmail").setValue("name@example.com");
-
+        new RegistrationFormObject().setUserEmailInput("name@example.com");
         //чек-бокс
-        $(byText("Male")).click();
-
-        //ввожу номер телефона
-        $("#userNumber").setValue("8900000000");
+        new RegistrarionPageComponents().setMaleCheckBox();
+        //Ввожу телефонный номер
+        new RegistrationFormObject().setUserPhoneNumberInput("8900000000");
 
         //выбираю дату рождения
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOptionByValue("7");
 
-        $(".react-datepicker__year-select").selectOptionByValue("2019");
-
-        $(".react-datepicker__day.react-datepicker__day--007").click();
+        new RegistrarionPageComponents().setDateOfBirth("7", "August", "2019");
 
         //Выбираю тему
         $("#subjectsInput").setValue("Hindi").pressEnter();
