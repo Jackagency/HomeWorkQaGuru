@@ -1,13 +1,11 @@
 package tests;
 
-import Pages.RegistrationPageComponents;
-import Pages.RegistrationFormObject;
+import pages.RegistrationPageComponents;
+import pages.RegistrationFormObject;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AutomationPracticeForm {
