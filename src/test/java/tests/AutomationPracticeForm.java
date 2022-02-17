@@ -29,7 +29,7 @@ public class AutomationPracticeForm {
         $("#userEmail").setValue("name@example.com");
 
         //чек-бокс
-        $(".custom-control-label").click();
+        $(byText("Male")).click();
 
         //ввожу номер телефона
         $("#userNumber").setValue("8900000000");
@@ -46,10 +46,10 @@ public class AutomationPracticeForm {
         $("#subjectsInput").setValue("Hindi").pressEnter();
 
         //чек-бокс
-        $(".custom-control-label", 3).click();
+        $(byText("Sports")).click();
 
         //загружаю файл
-        $("#uploadPicture").uploadFile(new File("src/test/java/Files/file.docx"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/file.docx"));
 
         //Пишу адресс
         $("#currentAddress").setValue("address");
@@ -67,7 +67,17 @@ public class AutomationPracticeForm {
 
 
         //Проверяю результат
-        $(".table-responsive").shouldHave(text("Name LastName"), text("name@example.com"), text("Male"), text("8900000000"), text("07 August,2019"), text("Hindi"), text("Sports"), text("file.docx"), text("address"), text("NCR Delhi"));
+        $(".table-responsive").shouldHave(
+                text("Name LastName"),
+                text("name@example.com"),
+                text("Male"),
+                text("8900000000"),
+                text("07 August,2019"),
+                text("Hindi"),
+                text("Sports"),
+                text("file.docx"),
+                text("address"),
+                text("NCR Delhi"));
 
 
     }
