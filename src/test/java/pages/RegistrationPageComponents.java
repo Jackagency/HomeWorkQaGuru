@@ -17,9 +17,10 @@ public class RegistrationPageComponents {
     }
 
     //Выбор чек-бокса Sports
-    public void setSportsCheckBox() {
+    public RegistrationPageComponents setSportsCheckBox() {
         SelenideElement maleCheckBox = $(byText("Sports"));
         maleCheckBox.click();
+        return this;
     }
 
 
@@ -40,18 +41,20 @@ public class RegistrationPageComponents {
     }
 
     //загрузка файла
-    public void fileUpload (){
+    public RegistrationPageComponents fileUpload (){
         SelenideElement fileUploadInput = $("#uploadPicture");
         fileUploadInput.uploadFile(new File("src/test/resources/file.docx"));
+        return this;
     }
     //промотка до кнопки submit
-    public void scrollDown (){
+    public RegistrationPageComponents scrollDown (){
         SelenideElement submittButton = $("#submit");
         submittButton.scrollIntoView(true);
+        return this;
     }
 
     //выбор города и штата
-    public void stateAndCitySelect (String state, String city){
+    public RegistrationPageComponents stateAndCitySelect (String state, String city){
         SelenideElement stateInput = $("#state");
         SelenideElement cityInput = $("#city");
         SelenideElement wrapperState = $("#stateCity-wrapper").$(byText(state));
@@ -61,17 +64,19 @@ public class RegistrationPageComponents {
         wrapperState.click();
         cityInput.click();
         wrapperCity.click();
+        return this;
     }
 
-    public void pressSubmit(){
+    public RegistrationPageComponents pressSubmit(){
         SelenideElement submitButton = $("#submit");
         submitButton.click();
+        return this;
     }
 
-    public void checkResults(){
+    public RegistrationPageComponents checkResults(){
         SelenideElement resultsTable = $(".table-responsive");
         resultsTable.shouldHave(
-                text("Name LastName"),
+                text("Name"),
                 text("name@example.com"),
                 text("Male"),
                 text("8900000000"),
@@ -81,5 +86,6 @@ public class RegistrationPageComponents {
                 text("file.docx"),
                 text("address"),
                 text("NCR Delhi"));
+        return this;
     }
 }

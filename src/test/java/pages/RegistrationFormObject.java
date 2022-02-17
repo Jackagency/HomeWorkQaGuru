@@ -25,12 +25,14 @@ public class RegistrationFormObject {
         return this;
     }
 
-    public void setUserLastNameInput (String userLastName){
+    public RegistrationFormObject setUserLastNameInput (String userLastName){
         userLastNameInput.setValue(userLastName);
+        return this;
     }
 
-    public void setUserEmailInput (String userEmail){
+    public RegistrationFormObject setUserEmailInput (String userEmail){
         userEmailInput.setValue(userEmail);
+        return this;
     }
 
     public void setUserPhoneNumberInput (String userPhoneNumber){

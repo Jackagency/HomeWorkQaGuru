@@ -9,6 +9,10 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AutomationPracticeForm {
+
+    RegistrationFormObject registrationFormObject = new RegistrationFormObject();
+    RegistrationPageComponents registrationPageComponents = new RegistrationPageComponents();
+
     @BeforeAll
     static void beforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
@@ -19,44 +23,31 @@ public class AutomationPracticeForm {
     void successFillTest() {
         open("/automation-practice-form");
 
-        //Ввожу имя
-        new RegistrationFormObject().setUserFirstName("Name");
-        //Ввожу фамилию
-        new RegistrationFormObject().setUserLastNameInput("LastName");
-        //Ввожу имейл
-        new RegistrationFormObject().setUserEmailInput("name@example.com");
-        //чек-бокс
-        new RegistrationPageComponents().setMaleCheckBox();
-        //Ввожу телефонный номер
-        new RegistrationFormObject().setUserPhoneNumberInput("8900000000");
 
-        //выбираю дату рождения
-        new RegistrationPageComponents().setDateOfBirth("7", "August", "2019");
+        registrationFormObject
+                .setUserFirstName("Name")
+                .setUserLastNameInput("LastName")
+                .setUserEmailInput("name@example.com");
 
-        //Выбираю тему
-        new RegistrationFormObject().setStudySubjectInput("Hindi");
+        registrationPageComponents.setMaleCheckBox();
 
-        //чек-бокс
-        new RegistrationPageComponents().setSportsCheckBox();
+        registrationFormObject.setUserPhoneNumberInput("8900000000");
 
-        //загружаю файл
-        new RegistrationPageComponents().fileUpload();
+        registrationPageComponents.setDateOfBirth("7", "August", "2019");
 
-        //Пишу адресс
-        new RegistrationFormObject().setAddress("address");
+        registrationFormObject.setStudySubjectInput("Hindi");
 
-        //Проматываю ниже, так как ни в какую не хочет нажимать на элементы ниже экрана
-        new RegistrationPageComponents().scrollDown();
+        registrationPageComponents
+                .setSportsCheckBox()
+                .fileUpload();
 
-        //Выбираю штат и город
-        new RegistrationPageComponents().stateAndCitySelect("NCR", "Delhi");
-
-        //Нажимаю Submit
-        new RegistrationPageComponents().pressSubmit();
+        registrationFormObject.setAddress("address");
 
 
-        //Проверяю результат
-        new RegistrationPageComponents().checkResults();
-
+        registrationPageComponents
+                .scrollDown()
+                .stateAndCitySelect("NCR", "Delhi")
+                .pressSubmit()
+                .checkResults();
     }
 }
