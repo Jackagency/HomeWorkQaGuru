@@ -16,7 +16,6 @@ public class RegistrationFormObject {
     SelenideElement addressInput = $("#currentAddress");
 
 
-
     //actions
 
     public RegistrationFormObject setUserFirstName (String userFirstName){
