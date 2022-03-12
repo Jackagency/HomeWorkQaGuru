@@ -17,7 +17,6 @@ public class RegistrationFormObject {
 
 
 
-
     //actions
 
     public RegistrationFormObject setUserFirstName (String userFirstName){
