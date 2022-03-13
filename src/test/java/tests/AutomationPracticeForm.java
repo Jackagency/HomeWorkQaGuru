@@ -19,34 +19,48 @@ public class AutomationPracticeForm {
         Configuration.browserSize = "1920x1080";
     }
 
+    String name = "Name";
+    String lastName = "LastName";
+    String email = "name@example.com";
+    String phone = "8900000000";
+    String dateDay = "7";
+    String dateMonth = "August";
+    String dateYear = "2019";
+    String studyObject = "Hindi";
+    String address = "address";
+    String state = "NCR";
+    String city = "Delhi";
+
+
+
     @Test
     void successFillTest() {
         open("/automation-practice-form");
 
 
         registrationFormObject
-                .setUserFirstName("Name")
-                .setUserLastNameInput("LastName")
-                .setUserEmailInput("name@example.com");
+                .setUserFirstName(name)
+                .setUserLastNameInput(lastName)
+                .setUserEmailInput(email);
 
         registrationPageComponents.setMaleCheckBox();
 
-        registrationFormObject.setUserPhoneNumberInput("8900000000");
+        registrationFormObject.setUserPhoneNumberInput(phone);
 
-        registrationPageComponents.setDateOfBirth("7", "August", "2019");
+        registrationPageComponents.setDateOfBirth(dateDay, dateMonth, dateYear);
 
-        registrationFormObject.setStudySubjectInput("Hindi");
+        registrationFormObject.setStudySubjectInput(studyObject);
 
         registrationPageComponents
                 .setSportsCheckBox()
                 .fileUpload();
 
-        registrationFormObject.setAddress("address");
+        registrationFormObject.setAddress(address);
 
 
         registrationPageComponents
                 .scrollDown()
-                .stateAndCitySelect("NCR", "Delhi")
+                .stateAndCitySelect(state, city)
                 .pressSubmit()
                 .checkResults();
     }

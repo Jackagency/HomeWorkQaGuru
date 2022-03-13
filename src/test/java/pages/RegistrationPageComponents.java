@@ -48,8 +48,8 @@ public class RegistrationPageComponents {
     }
     //промотка до кнопки submit
     public RegistrationPageComponents scrollDown (){
-        SelenideElement submittButton = $("#submit");
-        submittButton.scrollIntoView(true);
+        SelenideElement submitButton = $("#submit");
+        submitButton.scrollIntoView(true);
         return this;
     }
 
