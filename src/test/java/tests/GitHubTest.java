@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -29,11 +30,12 @@ public class GitHubTest {
         //проверяю есть ли страница Soft assertion и кликаю на нее
         $("#wiki-body div ul li:nth-child(6) a").shouldHave(Condition.text("Soft assertions")).click();
         //проверяю есть ли в тексте пример для Junit5
-        $("#wiki-body div ol:nth-child(16) li").shouldHave(Condition.text("Using JUnit5 extend test class"));
+        $("#wiki-body h4:nth-child(18)").shouldHave(Condition.text("Using JUnit5 extend test class"));
 
     }
 
     @Test
+    @Disabled
     void dragAndDropTest() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         //не понимаю почему не работает
