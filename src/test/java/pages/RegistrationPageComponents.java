@@ -29,7 +29,6 @@ public class RegistrationPageComponents {
         SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
         SelenideElement monthSelect = $(".react-datepicker__month-select");
         SelenideElement yearSelect = $(".react-datepicker__year-select");
-        //эту строчку забрал с занятия, полностью понимаю как она составлена, но сам не могу такую составить.
         //не знал что такие вещи как aria-label можно в таком виде обрабатывать
         SelenideElement daySelect = $("[aria-label$='" + month + " " + day + "th, " + year + "']");
 
@@ -40,7 +39,6 @@ public class RegistrationPageComponents {
 
     }
 
-    //загрузка файла
     @Step("Загружаем файл")
     public RegistrationPageComponents fileUpload (){
         SelenideElement fileUploadInput = $("#uploadPicture");
@@ -84,7 +82,7 @@ public class RegistrationPageComponents {
                 text("07 August,2019"),
                 text("Hindi"),
                 text("Sports"),
-                text("file.docx"),
+//                text("file.docx"),
                 text("address"),
                 text("NCR Delhi"));
         return this;

@@ -43,9 +43,10 @@ public class AutomationPracticeForm extends TestBase{
 
         registrationFormObject.setStudySubjectInput(studyObject);
 
-        registrationPageComponents
-                .setSportsCheckBox()
-                .fileUpload();
+        registrationPageComponents.setSportsCheckBox();
+
+        //селенид не хочет загружать файл
+//        registrationPageComponents.fileUpload();
 
         registrationFormObject.setAddress(address);
 
