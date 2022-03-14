@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class GitHubTest {
+public class GitHubTest extends TestBase{
     //1. Есть ли разница между $("h1 div"); и $("h1").$("div"); - может ли привести к тому что, поиск найдёт разные элементы?
     //Понимаю что может, но затрудняюсь ответить почему. Завязка в том сколько дочерних div имеется у h1
 
