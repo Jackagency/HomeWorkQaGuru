@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import java.io.File;
 
@@ -10,21 +11,20 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPageComponents {
 
-    // Выбор чек-бокса Male
+    @Step("Выбираем чек-бокс Male")
     public void setMaleCheckBox() {
         SelenideElement maleCheckBox = $(byText("Male"));
         maleCheckBox.click();
     }
 
-    //Выбор чек-бокса Sports
+    @Step("Выбираем чек-бокс Sports")
     public RegistrationPageComponents setSportsCheckBox() {
         SelenideElement maleCheckBox = $(byText("Sports"));
         maleCheckBox.click();
         return this;
     }
 
-
-    //выбор даты рождения
+    @Step("Выбираем дату рождения")
     public void setDateOfBirth(String day, String month, String year){
         SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
         SelenideElement monthSelect = $(".react-datepicker__month-select");
@@ -41,19 +41,20 @@ public class RegistrationPageComponents {
     }
 
     //загрузка файла
+    @Step("Загружаем файл")
     public RegistrationPageComponents fileUpload (){
         SelenideElement fileUploadInput = $("#uploadPicture");
         fileUploadInput.uploadFile(new File("src/test/resources/file.docx"));
         return this;
     }
-    //промотка до кнопки submit
+    @Step("Проматываем до кнопки Submit")
     public RegistrationPageComponents scrollDown (){
         SelenideElement submitButton = $("#submit");
         submitButton.scrollIntoView(true);
         return this;
     }
 
-    //выбор города и штата
+    @Step("Выбираем город и штат")
     public RegistrationPageComponents stateAndCitySelect (String state, String city){
         SelenideElement stateInput = $("#state");
         SelenideElement cityInput = $("#city");
@@ -66,13 +67,13 @@ public class RegistrationPageComponents {
         wrapperCity.click();
         return this;
     }
-
+    @Step("Нажимаем Submit")
     public RegistrationPageComponents pressSubmit(){
         SelenideElement submitButton = $("#submit");
         submitButton.click();
         return this;
     }
-
+    @Step("Сверяем результаты")
     public RegistrationPageComponents checkResults(){
         SelenideElement resultsTable = $(".table-responsive");
         resultsTable.shouldHave(

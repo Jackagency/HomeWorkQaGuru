@@ -2,22 +2,14 @@ package tests;
 
 import pages.RegistrationPageComponents;
 import pages.RegistrationFormObject;
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class AutomationPracticeForm {
+public class AutomationPracticeForm extends TestBase{
 
     RegistrationFormObject registrationFormObject = new RegistrationFormObject();
     RegistrationPageComponents registrationPageComponents = new RegistrationPageComponents();
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
 
     String name = "Name";
     String lastName = "LastName";
