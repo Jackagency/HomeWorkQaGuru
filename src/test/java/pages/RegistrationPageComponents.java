@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
@@ -10,6 +11,20 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPageComponents {
+
+    String name = "Name";
+    String genderMale = "Male";
+    String email = "name@example.com";
+    String phone = "8900000000";
+    String day = "07";
+    String month = "August";
+    String year = "2019";
+    String studyObject = "Hindi";
+    String state = "NCR";
+    String city = "Delhi";
+    String sportsCheckBox = "Sports";
+    String address = "address";
+
 
     @Step("Выбираем чек-бокс Male")
     public void setMaleCheckBox() {
@@ -67,24 +82,24 @@ public class RegistrationPageComponents {
     }
     @Step("Нажимаем Submit")
     public RegistrationPageComponents pressSubmit(){
-        SelenideElement submitButton = $("#submit");
-        submitButton.click();
+        Selenide.executeJavaScript("document.body.style.zoom='67%'");
+        Selenide.executeJavaScript("arguments[0].click()", $("#submit"));
         return this;
     }
     @Step("Сверяем результаты")
     public RegistrationPageComponents checkResults(){
         SelenideElement resultsTable = $(".table-responsive");
         resultsTable.shouldHave(
-                text("Name"),
-                text("name@example.com"),
-                text("Male"),
-                text("8900000000"),
-                text("07 August,2019"),
-                text("Hindi"),
-                text("Sports"),
+                text(name),
+                text(email),
+                text(genderMale),
+                text(phone),
+                text(day + " " + month + "," + year),
+                text(studyObject),
+                text(sportsCheckBox),
 //                text("file.docx"),
-                text("address"),
-                text("NCR Delhi"));
+                text(address),
+                text(state + " " + city));
         return this;
     }
 }
