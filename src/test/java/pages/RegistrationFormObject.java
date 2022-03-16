@@ -19,30 +19,30 @@ public class RegistrationFormObject {
 
     //actions
     @Step("Вводим имя")
-    public RegistrationFormObject setUserFirstName (String userFirstName){
+    public RegistrationFormObject setUserFirstName(String userFirstName){
         userNameInput.setValue(userFirstName);
         return this;
     }
     @Step("Вводим фамилию")
-    public RegistrationFormObject setUserLastNameInput (String userLastName){
+    public RegistrationFormObject setUserLastNameInput(String userLastName){
         userLastNameInput.setValue(userLastName);
         return this;
     }
     @Step("Вводим имейл")
-    public RegistrationFormObject setUserEmailInput (String userEmail){
+    public RegistrationFormObject setUserEmailInput(String userEmail){
         userEmailInput.setValue(userEmail);
         return this;
     }
     @Step("Вводим номер телефона")
-    public void setUserPhoneNumberInput (String userPhoneNumber){
+    public void setUserPhoneNumberInput(String userPhoneNumber){
         userPhoneNumberInput.setValue(userPhoneNumber);
     }
     @Step("Вводим объект изучения")
-    public void setStudySubjectInput (String studySubject){
+    public void setStudySubjectInput(String studySubject){
         studySubjectInput.setValue(studySubject).pressEnter();
     }
     @Step("Вводим адрес")
-    public void setAddress (String address){
+    public void setAddress(String address){
         addressInput.setValue(address);
     }
 

@@ -41,20 +41,20 @@ public class RegistrationPageComponents {
     }
 
     @Step("Загружаем файл")
-    public RegistrationPageComponents fileUpload (){
+    public RegistrationPageComponents fileUpload(){
         SelenideElement fileUploadInput = $("#uploadPicture");
         fileUploadInput.uploadFile(new File("src/test/resources/file.docx"));
         return this;
     }
     @Step("Проматываем до кнопки Submit")
-    public RegistrationPageComponents scrollDown (){
+    public RegistrationPageComponents scrollDown(){
         SelenideElement submitButton = $("#submit");
         submitButton.scrollIntoView(true);
         return this;
     }
 
     @Step("Выбираем город и штат")
-    public RegistrationPageComponents stateAndCitySelect (String state, String city){
+    public RegistrationPageComponents stateAndCitySelect(String state, String city){
         SelenideElement stateInput = $("#state");
         SelenideElement cityInput = $("#city");
         SelenideElement wrapperState = $("#stateCity-wrapper").$(byText(state));
