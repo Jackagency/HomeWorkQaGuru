@@ -5,6 +5,7 @@
 .idea
 .gradle
 .allure
+idea
 build
 video
 out
