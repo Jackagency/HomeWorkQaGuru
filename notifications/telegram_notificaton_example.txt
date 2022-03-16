@@ -18,3 +18,10 @@ java \
 
 
 //jenkins
+java \
+"-DprojectName=${PROJECT_NAME}" \
+"-Denv=${ENVIRONMENT}" \
+"-DreportLink=${BUILD_URL}" \
+"-Dcomm=Any comment here" \
+"-Dconfig.file=notifications/telegram_notification_config.json" \
+-jar notifications/allure-notifications-3.1.2.jar
