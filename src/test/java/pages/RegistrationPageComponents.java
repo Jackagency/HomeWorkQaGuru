@@ -12,20 +12,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationPageComponents {
 
-    String name = "Name";
-    String genderMale = "Male";
-    String email = "name@example.com";
-    String phone = "8900000000";
-    String day = "07";
-    String month = "August";
-    String year = "2019";
-    String studyObject = "Hindi";
-    String state = "NCR";
-    String city = "Delhi";
-    String sportsCheckBox = "Sports";
-    String address = "address";
-
-
     @Step("Выбираем чек-бокс Male")
     public void setMaleCheckBox() {
         SelenideElement maleCheckBox = $(byText("Male"));
@@ -87,19 +73,9 @@ public class RegistrationPageComponents {
         return this;
     }
     @Step("Сверяем результаты")
-    public RegistrationPageComponents checkResults(){
+    public RegistrationPageComponents checkResults(String fieldName, String value) {
         SelenideElement resultsTable = $(".table-responsive");
-        resultsTable.shouldHave(
-                text(name),
-                text(email),
-                text(genderMale),
-                text(phone),
-                text(day + " " + month + "," + year),
-                text(studyObject),
-                text(sportsCheckBox),
-//                text("file.docx"),
-                text(address),
-                text(state + " " + city));
+        resultsTable.$(byText(fieldName)).parent().shouldHave(text(value));
         return this;
     }
 }

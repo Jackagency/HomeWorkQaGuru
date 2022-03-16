@@ -13,12 +13,14 @@ public class AutomationPracticeForm extends TestBase{
 
     String name = "Name";
     String lastName = "LastName";
+    String genderMale = "Male";
     String email = "name@example.com";
     String phone = "8900000000";
     String dateDay = "7";
     String dateMonth = "August";
     String dateYear = "2019";
     String studyObject = "Hindi";
+    String sportsCheckBox = "Sports";
     String address = "address";
     String state = "NCR";
     String city = "Delhi";
@@ -54,7 +56,16 @@ public class AutomationPracticeForm extends TestBase{
         registrationPageComponents
                 .scrollDown()
                 .stateAndCitySelect(state, city)
-                .pressSubmit()
-                .checkResults();
+                .pressSubmit();
+        registrationPageComponents
+                .checkResults("Student Name", name + " " + lastName)
+                .checkResults("Student Email", email)
+                .checkResults("Gender", genderMale)
+                .checkResults("Mobile", phone)
+                .checkResults("Date of Birth", dateDay + " " + dateMonth + "," + dateYear)
+                .checkResults("Subjects", studyObject)
+                .checkResults("Hobbies", sportsCheckBox)
+                .checkResults("Address", address)
+                .checkResults("State and City",  state+ " " +city);
     }
 }
