@@ -56,7 +56,17 @@ tasks.withType(Test) {
     }
 }
 
+task properties_test(type: Test) {
+    useJUnitPlatform{
+        includeTags "Smoke"
+    }
+}
 
+task smoke_test(type: Test) {
+    useJUnitPlatform{
+        includeTags "Functional"
+    }
+}
 
 test {
     useJUnitPlatform()

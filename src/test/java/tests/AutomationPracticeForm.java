@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import pages.RegistrationPageComponents;
 import pages.RegistrationFormObject;
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,52 @@ public class AutomationPracticeForm extends TestBase{
 
 
     @Test
+    @Tag("Functional")
     void successFillTest() {
+        open("/automation-practice-form");
+
+
+        registrationFormObject
+                .setUserFirstName(name)
+                .setUserLastNameInput(lastName)
+                .setUserEmailInput(email);
+
+        registrationPageComponents.setMaleCheckBox();
+
+        registrationFormObject.setUserPhoneNumberInput(phone);
+
+        registrationPageComponents.setDateOfBirth(dateDay, dateMonth, dateYear);
+
+        registrationFormObject.setStudySubjectInput(studyObject);
+
+        registrationPageComponents.setSportsCheckBox();
+
+        //селенид не хочет загружать файл
+//        registrationPageComponents.fileUpload();
+
+        registrationFormObject.setAddress(address);
+
+
+        registrationPageComponents
+                .scrollDown()
+                .stateAndCitySelect(state, city)
+                .pressSubmit();
+        registrationPageComponents
+                .checkResults("Student Name", name + " " + lastName)
+                .checkResults("Student Email", email)
+                .checkResults("Gender", genderMale)
+                .checkResults("Mobile", phone)
+                .checkResults("Date of Birth", dateDay + " " + dateMonth + "," + dateYear)
+                .checkResults("Subjects", studyObject)
+                .checkResults("Hobbies", sportsCheckBox)
+                .checkResults("Address", address)
+                .checkResults("State and City",  state+ " " +city);
+    }
+
+
+    @Test
+    @Tag("Smoke")
+    void successFillTestSmoke() {
         open("/automation-practice-form");
 
 
