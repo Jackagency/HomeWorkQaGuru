@@ -4,9 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import pages.RegistrationPageComponents;
-import pages.RegistrationFormObject;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$;
