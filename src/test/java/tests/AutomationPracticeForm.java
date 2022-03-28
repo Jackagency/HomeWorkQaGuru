@@ -114,10 +114,4 @@ public class AutomationPracticeForm extends TestBase{
                 .checkResults("Address", address)
                 .checkResults("State and City",  state+ " " +city);
     }
-    @Test
-    void test1() {
-        open("https://www.aperto.com/aperto/de");
-        $("#uc-btn-accept-banner").click();
-        $(".headline", 2).click();
-    }
 }

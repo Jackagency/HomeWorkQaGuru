@@ -41,6 +41,8 @@ dependencies {
     testImplementation 'org.aspectj:aspectjweaver:1.9.8'
 
     implementation 'com.github.javafaker:javafaker:1.0.2'
+    implementation 'org.aeonbits.owner:owner:1.0.12'
+
 }
 
 tasks.withType(Test) {
