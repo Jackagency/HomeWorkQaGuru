@@ -1,25 +1,34 @@
 package config;
 
-import com.codeborne.selenide.Browser;
 import org.aeonbits.owner.Config;
 
-import java.net.URL;
-
+@Config.Sources({"classpath:lesson_15/${typeProperties}.properties"})
 public interface WebDriverConfig extends Config {
 
-    @Key("baseUrl")//читаем значение
-    @DefaultValue("https://demoqa.com")//обрабатываем дефолтное
-    String getBaseUrl();//конвертируем результат
+    @Key("browserName")
+    @DefaultValue("Chrome")
+    String browserName();
 
-    @Key("browser")//читаем значение
-    @DefaultValue("CHROME")//обрабатываем дефолтное
-    Browser getBrowser();//конвертируем результат
+    @Key("browserVersion")
+    String browserVersion();
 
-    @Key("isRemote")
-    @DefaultValue("false")
-    boolean isRemote();
+    @Key("browserSize")
+    String browserSize();
 
     @Key("remoteUrl")
-    URL getRemoteUrl();
+    String remoteUrl();
+
+    @Key("baseUrl")//читаем значение
+    @DefaultValue("https://demoqa.com/")//обрабатываем дефолтное
+    String getBaseUrl();//конвертируем результат
+
+    @Key("videoStorage")
+    String videoStorage();
+
+    @Key("timeoutVideoAttach")
+    int timeoutVideoAttach();
+
+    @Key("timeout")
+    int timeout();
 
 }

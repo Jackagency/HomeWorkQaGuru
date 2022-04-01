@@ -1,6 +1,8 @@
 package tests;
 
+import config.WebDriverConfig;
 import org.junit.jupiter.api.Tag;
+import org.openqa.selenium.WebDriver;
 import pages.RegistrationPageComponents;
 import pages.RegistrationFormObject;
 import org.junit.jupiter.api.Test;
@@ -25,7 +27,6 @@ public class AutomationPracticeForm extends TestBase{
     String address = "address";
     String state = "NCR";
     String city = "Delhi";
-
 
 
     @Test
