@@ -1,8 +1,6 @@
 package tests;
 
-import config.WebDriverConfig;
 import org.junit.jupiter.api.Tag;
-import org.openqa.selenium.WebDriver;
 import pages.RegistrationPageComponents;
 import pages.RegistrationFormObject;
 import org.junit.jupiter.api.Test;
@@ -32,7 +30,7 @@ public class AutomationPracticeForm extends TestBase{
     @Test
     @Tag("Functional")
     void successFillTest() {
-        open("/automation-practice-form");
+        open("automation-practice-form");
 
 
         registrationFormObject
@@ -76,7 +74,7 @@ public class AutomationPracticeForm extends TestBase{
     @Test
     @Tag("Smoke")
     void successFillTestSmoke() {
-        open("/automation-practice-form");
+        open("automation-practice-form");
 
 
         registrationFormObject

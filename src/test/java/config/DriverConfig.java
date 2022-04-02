@@ -9,12 +9,16 @@ public class DriverConfig {
         Configuration.browserVersion = Project.webConfig.browserVersion();
         Configuration.browserSize = Project.webConfig.browserSize();
         Configuration.baseUrl = Project.webConfig.getBaseUrl();
-        Configuration.timeout = Project.webConfig.timeout();
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
+
+        if (Project.isRemoteWebDriver()) {
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
+            Configuration.remote = Project.webConfig.remoteUrl();
+        }
         Configuration.browserCapabilities = capabilities;
+
     }
 }
