@@ -27,11 +27,10 @@ public class AutomationPracticeForm extends TestBase{
     String city = "Delhi";
 
 
-
     @Test
     @Tag("Functional")
     void successFillTest() {
-        open("/automation-practice-form");
+        open("automation-practice-form");
 
 
         registrationFormObject
@@ -75,7 +74,7 @@ public class AutomationPracticeForm extends TestBase{
     @Test
     @Tag("Smoke")
     void successFillTestSmoke() {
-        open("/automation-practice-form");
+        open("automation-practice-form");
 
 
         registrationFormObject
