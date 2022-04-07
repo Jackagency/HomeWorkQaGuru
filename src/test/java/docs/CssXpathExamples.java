@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selenide.$x;
 
 /*
     Locators examples
-    Author: https://github.com/svasenkov
  */
 
 public class CssXpathExamples {
